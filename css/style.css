@@ -1,10 +1,11 @@
+/* Apply box-sizing to all elements and their pseudo-elements */
 *,
 *::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Custom Properties, update these for your own design */
+/* Custom Properties for font family, font weight colour variables, font sizes*/
 
 :root {
     --ff-primary: 'Source Sans Pro', sans-serif;
@@ -13,19 +14,21 @@
     --fw-reg: 300;
     --fw-bold: 900;
     
-    --clr-light: #fff;
-    --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    --clr-light: #FFFFFF;
+    --clr-dark: #191970;
+    --clr-accent: #FA8072;
     
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
     --fs-body: 1rem;
     
+    /*box shadow values defined*/
     --bs: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
           0.125em 0.125em 0.25em rgba(0,0,0,.15);
 }
 
+/*Media query - adjust font sizes for larger screens*/
 @media (min-width: 800px) {
     :root {
         --fs-h1: 4.5rem;
@@ -35,13 +38,6 @@
     }
 }
 
-/* General styles */
-
-/* endable this to add smooth scrolling */
-/* html {
-    scroll-behavior: smooth;
-} */
-
 
 body {
     background: var(--clr-light);
@@ -50,16 +46,67 @@ body {
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     line-height: 1.6;
+    padding-top: 10px;
 }
 
+.container {
+    /* Set background image */
+    background-image: url('.img/Candles burn.webp');
+    /* Set background size */
+    background-size: cover;
+    /* Set background position */
+    background-position: center;
+    /* Set text color */
+    color: white;
+    /* Set text alignment */
+    text-align: center;
+    /* Set padding */
+    padding: 100px 0;
+  }
+  
+  .text {
+    /* Set font size */
+    font-size: 24px;
+    /* Set font weight */
+    font-weight: bold;
+    /* Add text shadow for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+
 section {
-    padding: 5em 2em;
+    padding: 3em 1em;
 }
 
 img {
     display: block;
     max-width: 100%;
+    max-height: 100%;
 }
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .gallery img {
+    width: calc(33.33% - 20px); /* 20px is the total margin space */
+    height: auto;
+    margin: 10px; /* To adjust margin space between images */
+  }
+  
+  @media screen and (orientation: landscape) {
+    .gallery img {
+      width: calc(33.33% - 20px); /* To adjust width for landscape orientation */
+      height: auto;
+      margin: 10px; /* To adjust margin space between images */
+    }
+  }
+  
 
 strong { font-weight: var(--fw-bold) }
 
@@ -95,6 +142,12 @@ h2,
 h3 {
     line-height: 1;
     margin: 0;
+}
+
+.section__subtitle--work,
+.section__subtitle--work  {
+    text-align: center;
+
 }
 
 h1 { font-size: var(--fs-h1) }
@@ -212,11 +265,6 @@ header {
     opacity: 0;
 }
 
-
-
-
-
-
 .hamburger {
     display: block;
     position: relative;
@@ -231,7 +279,6 @@ header {
     border-radius: 1em;
     transition: transform 250ms ease-in-out;
 }
-
 
 .hamburger::before,
 .hamburger::after {
@@ -289,15 +336,12 @@ header {
     }
 }
 
-
-
 /*  My services section  */
-
 .my-services {
     background-color: var(--clr-dark);
-    background-image: url(../img/services-bg.jpg);
+    background-image: url(../img/Candles\ burn.webp);
     background-size: cover;
-    /* background-blend-mode: multiply; */
+    /* background-blend-mode */
     color: var(--clr-light);
     text-align: center;
 }
@@ -315,10 +359,11 @@ header {
     margin: 0.5em auto 1em;
     background: var(--clr-light);
     opacity: 0.25;
+    
 }
 
 .services {
-    margin-bottom: 4em;
+    margin-bottom: 2em;
 }
 
 .service {
@@ -339,18 +384,18 @@ header {
     }
 }
 
-
-.about-me {
+.about-us {
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.about-me__img {
+.about-us__img {
     box-shadow: var(--bs);
+
 }
 
-@media (min-width: 600px) {
-    .about-me {
+@media (min-width: 400px) {
+    .about-us {
         display: grid;
         grid-template-columns: 1fr 200px;
         grid-template-areas: 
@@ -379,9 +424,23 @@ header {
         position: relative;
         z-index: 2;
     }
-}
+
 
 /* My Work */
+
+.section__subtitle--work {
+    background-color: #191970;
+    color: #FA8072; /* Set text color to ensure visibility */
+    padding: 10px 20px; /* Adjust padding as needed */
+    display: inline-block; /* Ensure the background color spans the width of the content */
+    text-align: centre;
+  }
+
+  .section__title--work {
+    border: 2px solid #FA8072;
+    padding: 10px; /* Padding to create space between text and border */
+  }
+  
 
 .my-work {
     background-color: var(--clr-dark);
@@ -475,4 +534,5 @@ header {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
 }
